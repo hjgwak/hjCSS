@@ -33,12 +33,24 @@ addTaskToWorking(TaskList& working_list, vector<TaskVector>& tasks, int cur_time
 			if ((*it)[i].first == cur_time) {
 				Task temp = (*it)[i].second;
 				working_list.pushTask(temp, cur_time);
-				cout << cur_time << "\t" << temp.getName() << "\tadd." << endl;
+				cout << cur_time << "\t" << temp.getName() << "\tadd.\t " << endl;
 				rm_cnt++;
 			}
 		}
 		for (int i = 0; i < rm_cnt; ++i) it->erase(it->begin());
 	}
+}
+
+static int
+calcOnTime(TaskList& task_list) {
+	int ontime = 0;
+	for (int i = 0; i < task_list.end_list.size(); ++i) {
+		Task& task = task_list.end_list[i];
+		if (task.doneOnTime())
+			ontime++;
+	}
+
+	return ontime;
 }
 
 int main(int argc, char* argv[])
@@ -75,9 +87,9 @@ int main(int argc, char* argv[])
 		cur_time++;
 		addTaskToWorking(working_list, tasks, cur_time);
 		switch(argv[2][0] - '0') {
-			case 0 : scheduler.RMScheduling(working_list); break;
-			case 1 : scheduler.EDFScheduling(working_list); break;
-			case 2 : scheduler.UserScheduling(working_list); break;
+			case 1 : scheduler.RMScheduling(working_list); break;
+			case 2 : scheduler.EDFScheduling(working_list); break;
+			case 3 : scheduler.UserScheduling(working_list); break;
 			default : break;
 		}
 
@@ -86,16 +98,22 @@ int main(int argc, char* argv[])
 				working_list.end_list[working_list.end_list.size()-1] : working_list.getTopTask();
 			cout << cur_time << "\t" << cur_task.getName();
 			if (!cur_task.Done()) {
-				cout << "\t" << "Running...." << endl;
+				cout << "\t" << "Running." << endl;
 			} else {
-				cout << "\t" << "Done." << endl;
+				cout << "\t" << "Done.\t";
+				string ontime = (cur_task.doneOnTime()) ? "True" : "False";
+				cout << ontime << endl;
 			}
 
 			prev_cnt = working_list.end_list.size();
 		} else {
-			cout << cur_time << "\tCPU waiting..." << endl;
+			cout << cur_time << "\t \tCPU waiting.\t " << endl;
 		}
 	}
+
+	cout << "#Avg: " << working_list.getAvgResponseTime() << endl;
+	cout << "#Worst: " << working_list.getWorstResponseTime() << endl;
+	cout << "#OnTime/total: " << calcOnTime(working_list) << "/" << working_list.end_list.size();
 
 	return 0;
 }
