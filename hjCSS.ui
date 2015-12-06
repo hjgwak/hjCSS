@@ -27,9 +27,6 @@
     </sizepolicy>
    </property>
    <widget class="QSplitter" name="splitter">
-    <property name="enabled">
-     <bool>true</bool>
-    </property>
     <property name="geometry">
      <rect>
       <x>20</x>
@@ -38,105 +35,132 @@
       <height>400</height>
      </rect>
     </property>
-    <property name="sizePolicy">
-     <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-      <horstretch>0</horstretch>
-      <verstretch>0</verstretch>
-     </sizepolicy>
-    </property>
-    <property name="frameShape">
-     <enum>QFrame::NoFrame</enum>
-    </property>
-    <property name="lineWidth">
-     <number>1</number>
-    </property>
     <property name="orientation">
-     <enum>Qt::Horizontal</enum>
+     <enum>Qt::Vertical</enum>
     </property>
-    <property name="handleWidth">
-     <number>7</number>
-    </property>
-    <widget class="QWidget" name="layoutWidget">
+    <widget class="QWidget" name="">
      <layout class="QVBoxLayout" name="verticalLayout_2">
       <item>
-       <layout class="QHBoxLayout" name="horizontalLayout_2">
+       <layout class="QHBoxLayout" name="horizontalLayout">
         <item>
-         <widget class="QPushButton" name="ImportButton">
-          <property name="text">
-           <string>Import</string>
-          </property>
-         </widget>
+         <layout class="QVBoxLayout" name="verticalLayout">
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_2">
+            <item>
+             <widget class="QPushButton" name="ImportButton">
+              <property name="text">
+               <string>Import</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="SchedulingButton">
+              <property name="text">
+               <string>Scheduling</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_3">
+            <item>
+             <widget class="QPushButton" name="AddButton">
+              <property name="autoFillBackground">
+               <bool>false</bool>
+              </property>
+              <property name="text">
+               <string>Add</string>
+              </property>
+              <property name="shortcut">
+               <string>Ctrl+A</string>
+              </property>
+              <property name="flat">
+               <bool>false</bool>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="DeleteButton">
+              <property name="palette">
+               <palette>
+                <active>
+                 <colorrole role="Button">
+                  <brush brushstyle="SolidPattern">
+                   <color alpha="255">
+                    <red>236</red>
+                    <green>0</green>
+                    <blue>3</blue>
+                   </color>
+                  </brush>
+                 </colorrole>
+                </active>
+                <inactive>
+                 <colorrole role="Button">
+                  <brush brushstyle="SolidPattern">
+                   <color alpha="255">
+                    <red>236</red>
+                    <green>0</green>
+                    <blue>3</blue>
+                   </color>
+                  </brush>
+                 </colorrole>
+                </inactive>
+                <disabled>
+                 <colorrole role="Button">
+                  <brush brushstyle="SolidPattern">
+                   <color alpha="255">
+                    <red>236</red>
+                    <green>0</green>
+                    <blue>3</blue>
+                   </color>
+                  </brush>
+                 </colorrole>
+                </disabled>
+               </palette>
+              </property>
+              <property name="text">
+               <string>Delete</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+         </layout>
         </item>
         <item>
-         <widget class="QPushButton" name="SchedulingButton">
-          <property name="text">
-           <string>Scheduling</string>
-          </property>
-         </widget>
-        </item>
-       </layout>
-      </item>
-      <item>
-       <layout class="QHBoxLayout" name="horizontalLayout_3">
-        <item>
-         <widget class="QPushButton" name="AddButton">
-          <property name="autoFillBackground">
-           <bool>false</bool>
-          </property>
-          <property name="text">
-           <string>Add</string>
-          </property>
-          <property name="shortcut">
-           <string>Ctrl+A</string>
-          </property>
-          <property name="flat">
-           <bool>false</bool>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QPushButton" name="DeleteButton">
-          <property name="palette">
-           <palette>
-            <active>
-             <colorrole role="Button">
-              <brush brushstyle="SolidPattern">
-               <color alpha="255">
-                <red>236</red>
-                <green>0</green>
-                <blue>3</blue>
-               </color>
-              </brush>
-             </colorrole>
-            </active>
-            <inactive>
-             <colorrole role="Button">
-              <brush brushstyle="SolidPattern">
-               <color alpha="255">
-                <red>236</red>
-                <green>0</green>
-                <blue>3</blue>
-               </color>
-              </brush>
-             </colorrole>
-            </inactive>
-            <disabled>
-             <colorrole role="Button">
-              <brush brushstyle="SolidPattern">
-               <color alpha="255">
-                <red>236</red>
-                <green>0</green>
-                <blue>3</blue>
-               </color>
-              </brush>
-             </colorrole>
-            </disabled>
-           </palette>
-          </property>
-          <property name="text">
-           <string>Delete</string>
-          </property>
-         </widget>
+         <layout class="QHBoxLayout" name="horizontalLayout_4">
+          <item>
+           <widget class="QRadioButton" name="RMButton">
+            <property name="text">
+             <string>RM</string>
+            </property>
+            <attribute name="buttonGroup">
+             <string notr="true">buttonGroup</string>
+            </attribute>
+           </widget>
+          </item>
+          <item>
+           <widget class="QRadioButton" name="EDFButton">
+            <property name="text">
+             <string>EDF</string>
+            </property>
+            <attribute name="buttonGroup">
+             <string notr="true">buttonGroup</string>
+            </attribute>
+           </widget>
+          </item>
+          <item>
+           <widget class="QRadioButton" name="UserButton">
+            <property name="text">
+             <string>User</string>
+            </property>
+            <attribute name="buttonGroup">
+             <string notr="true">buttonGroup</string>
+            </attribute>
+           </widget>
+          </item>
+         </layout>
         </item>
        </layout>
       </item>
@@ -145,65 +169,35 @@
       </item>
      </layout>
     </widget>
-    <widget class="QWidget" name="layoutWidget">
+    <widget class="QWidget" name="">
      <layout class="QVBoxLayout" name="verticalLayout_3">
-      <item>
-       <layout class="QHBoxLayout" name="horizontalLayout_4">
-        <item>
-         <widget class="QRadioButton" name="RMButton">
-          <property name="text">
-           <string>RM</string>
-          </property>
-          <attribute name="buttonGroup">
-           <string notr="true">buttonGroup</string>
-          </attribute>
-         </widget>
-        </item>
-        <item>
-         <widget class="QRadioButton" name="EDFButton">
-          <property name="text">
-           <string>EDF</string>
-          </property>
-          <attribute name="buttonGroup">
-           <string notr="true">buttonGroup</string>
-          </attribute>
-         </widget>
-        </item>
-        <item>
-         <widget class="QRadioButton" name="UserButton">
-          <property name="text">
-           <string>User</string>
-          </property>
-          <attribute name="buttonGroup">
-           <string notr="true">buttonGroup</string>
-          </attribute>
-         </widget>
-        </item>
-       </layout>
-      </item>
       <item>
        <widget class="QTableView" name="tableView_2"/>
       </item>
       <item>
-       <widget class="QLabel" name="AvgDialog">
-        <property name="text">
-         <string>Avg Response Time : </string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QLabel" name="WorstDialog">
-        <property name="text">
-         <string>Worst response Time : </string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QLabel" name="OnTimeDialog">
-        <property name="text">
-         <string>OnTime / total :</string>
-        </property>
-       </widget>
+       <layout class="QHBoxLayout" name="horizontalLayout_5">
+        <item>
+         <widget class="QLabel" name="WorstDialog">
+          <property name="text">
+           <string>Worst response Time : </string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="AvgDialog">
+          <property name="text">
+           <string>Avg Response Time : </string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="OnTimeDialog">
+          <property name="text">
+           <string>OnTime / total :</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
       </item>
      </layout>
     </widget>
@@ -230,6 +224,38 @@
  </widget>
  <resources/>
  <connections>
+  <connection>
+   <sender>DeleteButton</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>DeleteTask()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>223</x>
+     <y>115</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>237</x>
+     <y>33</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>AddButton</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>AddTask()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>92</x>
+     <y>127</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>71</x>
+     <y>36</y>
+    </hint>
+   </hints>
+  </connection>
   <connection>
    <sender>ImportButton</sender>
    <signal>clicked()</signal>
@@ -259,38 +285,6 @@
     <hint type="destinationlabel">
      <x>270</x>
      <y>39</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>AddButton</sender>
-   <signal>clicked()</signal>
-   <receiver>MainWindow</receiver>
-   <slot>AddTask()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>92</x>
-     <y>127</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>71</x>
-     <y>36</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>DeleteButton</sender>
-   <signal>clicked()</signal>
-   <receiver>MainWindow</receiver>
-   <slot>DeleteTask()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>223</x>
-     <y>115</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>237</x>
-     <y>33</y>
     </hint>
    </hints>
   </connection>

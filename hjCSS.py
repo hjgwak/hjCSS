@@ -102,14 +102,19 @@ class Form(QtGui.QMainWindow) :
         self.cur_model = getInitialModel()
         self.cur_result_model = getInitialResultModel()
         self.ui.tableView.setModel(self.cur_model)
+        self.ui.tableView.setColumnWidth(2, 85)
+        self.ui.tableView.setColumnWidth(3, 90)
+        self.ui.tableView.setColumnWidth(4, 85)
+        self.ui.tableView.setColumnWidth(6, 85)
+        self.ui.tableView.setColumnWidth(7, 85)
         self.ui.tableView_2.setModel(self.cur_result_model)
-        self.ui.tableView_2.setColumnWidth(0, 50)
-        self.ui.tableView_2.setColumnWidth(1, 80)
-        self.ui.tableView_2.setColumnWidth(2, 80)
-        self.ui.tableView_2.setColumnWidth(3, 80)
-        self.leftWidth = 480
-        self.rightWidth = 800 - self.leftWidth
-        self.ui.splitter.setSizes([self.leftWidth, self.rightWidth])
+        self.ui.tableView_2.setColumnWidth(0, 60)
+        self.ui.tableView_2.setColumnWidth(1, 230)
+        self.ui.tableView_2.setColumnWidth(2, 220)
+        self.ui.tableView_2.setColumnWidth(3, 220)
+        #self.leftWidth = 480
+        #self.rightWidth = 800 - self.leftWidth
+        #self.ui.splitter.setSizes([self.leftWidth, self.rightWidth])
 
     def ImportFile(self) :
         print >> sys.stderr, "ImportFile"
